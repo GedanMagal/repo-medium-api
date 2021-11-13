@@ -1,29 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Gedan Magalhaes\\Desktop\\project\\api\\api.csproj": {}
+    "C:\\Users\\Gedan\\Desktop\\ORANGE\\repo-medium-api\\api\\api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Gedan Magalhaes\\Desktop\\project\\api\\api.csproj": {
+    "C:\\Users\\Gedan\\Desktop\\ORANGE\\repo-medium-api\\api\\api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Gedan Magalhaes\\Desktop\\project\\api\\api.csproj",
+        "projectUniqueName": "C:\\Users\\Gedan\\Desktop\\ORANGE\\repo-medium-api\\api\\api.csproj",
         "projectName": "api",
-        "projectPath": "C:\\Users\\Gedan Magalhaes\\Desktop\\project\\api\\api.csproj",
-        "packagesPath": "C:\\Users\\Gedan Magalhaes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Gedan Magalhaes\\Desktop\\project\\api\\obj\\",
+        "projectPath": "C:\\Users\\Gedan\\Desktop\\ORANGE\\repo-medium-api\\api\\api.csproj",
+        "packagesPath": "C:\\Users\\Gedan\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Gedan\\Desktop\\ORANGE\\repo-medium-api\\api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gedan Magalhaes\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Gedan\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -34,19 +35,20 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[5.0.12, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[5.0.12, )"
             },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[5.0.3, )"
             }
           },
           "imports": [
@@ -67,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

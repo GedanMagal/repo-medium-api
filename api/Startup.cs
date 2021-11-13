@@ -1,10 +1,11 @@
+using System;
 using api.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.EntityFrameworkCore;
 
 namespace api
 {
@@ -21,9 +22,10 @@ namespace api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-
-            services.AddDbContext<DataContext>(opt => opt.UseMySql(Configuration.GetConnectionString("connectionString")));
-
+                var connectionString = Configuration.GetConnectionString("connectionString");
+                var serverVersion =  ServerVersion.AutoDetect(Configuration.GetConnectionString("connectionString"));
+                
+            services.AddDbContext<DataContext>(opt => opt.UseMySql(connectionString, serverVersion));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
