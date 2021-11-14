@@ -10,6 +10,6 @@ namespace api.Model
         
         public string Name { get; set; }
 
-        public virtual ICollection<Movie> Movies { get; set; }
+        public virtual List<Movie> Movies { get; set; }
     }
 }

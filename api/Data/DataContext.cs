@@ -11,7 +11,5 @@ namespace api.Data
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Movie> Movies { get; set; }
-
-        public DbSet<MovieCategory> MovieCategory { get; set; }
     }
 }

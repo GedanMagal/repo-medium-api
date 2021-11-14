@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using api.Model;
@@ -10,10 +11,7 @@ namespace api.Model
         public int Id { get; set; }
 
         public string Nome { get; set; }
-
-        [ForeignKey("Category")]
-        public int CategoryId { get; set; }
         
-        public virtual Category Category { get; set; }
+        public virtual List<Category> Categories { get; set; }
     }
 }

@@ -16,6 +16,21 @@ namespace api.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.12");
 
+            modelBuilder.Entity("CategoryMovie", b =>
+                {
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MoviesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CategoriesId", "MoviesId");
+
+                    b.HasIndex("MoviesId");
+
+                    b.ToTable("CategoryMovie");
+                });
+
             modelBuilder.Entity("api.Model.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -36,15 +51,10 @@ namespace api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Nome")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.ToTable("Movies");
                 });
@@ -70,15 +80,19 @@ namespace api.Migrations
                     b.ToTable("MovieCategory");
                 });
 
-            modelBuilder.Entity("api.Model.Movie", b =>
+            modelBuilder.Entity("CategoryMovie", b =>
                 {
-                    b.HasOne("api.Model.Category", "Category")
-                        .WithMany("Movies")
-                        .HasForeignKey("CategoryId")
+                    b.HasOne("api.Model.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.HasOne("api.Model.Movie", null)
+                        .WithMany()
+                        .HasForeignKey("MoviesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("api.Model.MovieCategory", b =>
@@ -98,11 +112,6 @@ namespace api.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Movie");
-                });
-
-            modelBuilder.Entity("api.Model.Category", b =>
-                {
-                    b.Navigation("Movies");
                 });
 #pragma warning restore 612, 618
         }
