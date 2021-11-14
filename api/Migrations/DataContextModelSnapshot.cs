@@ -49,6 +49,27 @@ namespace api.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("api.Model.MovieCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MovieId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("MovieId");
+
+                    b.ToTable("MovieCategory");
+                });
+
             modelBuilder.Entity("api.Model.Movie", b =>
                 {
                     b.HasOne("api.Model.Category", "Category")
@@ -58,6 +79,25 @@ namespace api.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("api.Model.MovieCategory", b =>
+                {
+                    b.HasOne("api.Model.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("api.Model.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Movie");
                 });
 
             modelBuilder.Entity("api.Model.Category", b =>

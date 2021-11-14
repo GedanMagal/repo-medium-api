@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using api.Data;
 using api.Model;
@@ -18,7 +19,8 @@ namespace api.Controllers
         } 
 
         [HttpPost]
-        public async Task<ActionResult> Post(Movie movie){
+        public async Task<ActionResult> Post(Movie movie)
+        {
 
                 movie.Nome = "teste";
                 movie.Category = new Category();
@@ -28,5 +30,21 @@ namespace api.Controllers
                 return Ok();
         }
 
+        [HttpPost("categories")]
+        public async Task<ActionResult> Post2(Category category)
+        {
+
+                category.Name = "Terror";
+                category.Movies = new List<Movie>() {
+                    new Movie { Nome = "Gedan", Category = category},
+                    new Movie { Nome = "Bruno", Category = category},
+                    new Movie { Nome = "Barros", Category = category},
+                    new Movie { Nome = "Alan", Category = category}
+                };
+                
+                await this._context.Categories.AddAsync(category);
+                await this._context.SaveChangesAsync();
+                return Ok();
+        }
     }
 }
